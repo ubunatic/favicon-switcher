@@ -127,10 +127,18 @@ function findMatchFile(url) {
 }
 
 browser.tabs.onUpdated.addListener(function(tabId, changeInfo, tabInfo) {
+  if (changeInfo.status != 'complete') {
+    // Only process fully loaded tabs
+    return
+  }
   if (storedFavicon && Object.keys(storedFavicon).length) {
     var file = findMatchFile(tabInfo.url);
     if (file) {
-      browser.tabs.sendMessage(tabId, { file: file });
+      // safely handle promise to avoid errors from unready tabs
+      browser.tabs.sendMessage(tabId, { file: file })
+      .catch(error => {
+        console.log("send icon file error:", error);
+      });
     }
   }
 }, GlobalUrlFilter);
