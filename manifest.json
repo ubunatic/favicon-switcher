@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
-	"name": "FaviconSwitcher",
-	"version": "0.3.0",
+	"name": "Favicon Switcher",
+	"version": "0.3.2",
 
-	"description": "Replace ugly favicon by uploading your own images.",
+	"description": " Individual favicons for every tab!",
 
 	"icons": {
 		"512": "icons/icon.png"
@@ -26,5 +26,11 @@
 		"scripts": ["src/indexedDBWrapper.js", "background.js"]
 	},
 	"permissions": ["tabs", "notifications", "activeTab", "storage"],
-	"web_accessible_resources": ["src/*"]
+	"web_accessible_resources": ["src/*"],
+
+	"browser_specific_settings": {
+		"gecko": {
+		  "id": "favicon-switcher@ubunatic.com"
+		}
+	}
 }

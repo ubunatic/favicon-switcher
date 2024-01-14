@@ -6,7 +6,7 @@
     />
 </p>
 
-faviconSwitcher is a webextension to allow users to customize favicons with custom images.
+Favicon Switcher is a webextension to allow users to customize favicons with custom images.
 
 ## License
 
